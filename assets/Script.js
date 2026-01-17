@@ -1,0 +1,11 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("copilot-container");
+
+    container.innerHTML = `
+        <div class="copilot-widget">
+            <div class="copilot-header">WTZ Copilot</div>
+            <div class="copilot-messages"></div>
+            <input class="copilot-input" placeholder="Ask WTZ Copilot...">
+        </div>
+    `;
+});
