@@ -36,3 +36,72 @@ body {
     padding: 15px;
     border-radius: 8px;
 }
+
+.file-manager {
+    margin-top: 30px;
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.file-manager ul {
+    list-style: none;
+    padding: 0;
+}
+
+.file-manager li {
+    padding: 6px;
+    border-bottom: 1px solid #333;
+}
+
+.file-manager li:hover {
+    background: #222;
+    cursor: pointer;
+}
+
+.editor {
+    margin-top: 20px;
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#editor-area {
+    width: 100%;
+    height: 200px;
+    background: #222;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.copilot-widget {
+    background: #222;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.copilot-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.copilot-messages {
+    height: 150px;
+    overflow-y: auto;
+    background: #1a1a1a;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.copilot-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: #333;
+    color: white;
+}
