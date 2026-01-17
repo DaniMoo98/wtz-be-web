@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workspace – WTZ Copilot</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>wtz / Wtz3.0</h2>
+    <p>Resource Structure</p>
+
+    <pre class="file-tree">
+wtz3.0/
+    fxmanifest.lua
+    config.lua
+
+    client/
+        main.lua
+
+    server/
+        main.lua
+
+    shared/
+        globals.lua
+        enums.lua
+
+    core/
+        init/
+            cl_init.lua
+            sv_init.lua
+            sh_init.lua
+
+        config/
+            sh_config.lua
+            sh_permissions.lua
+            sh_settings.lua
+
+        utils/
+            sh_math.lua
+            sh_table.lua
+            sh_strings.lua
+            sh_events.lua
+            sh_debug.lua
+    data/
+        items/
+            items_master.json
+            categories.json
+            rarities.json
+
+        crafting/
+            recipes.json
+            stations.json
+
+        factions/
+            factions.json
+            mastery.json
+
+        survival/
+            metabolism.json
+            thresholds.json
+
+        nodes/
+            node_types.json
+            node_spawns.json
+    ui/
+        inventory/
+            ui_inventory.html
+            ui_inventory.css
+            ui_inventory.js
+
+        crafting/
+            ui_crafting.html
+            ui_crafting.css
+            ui_crafting.js
+
+        survival/
+            ui_survival.html
+            ui_survival.css
+            ui_survival.js
+
+        chat/
+            ui_chat.html
+            ui_chat.css
+            ui_chat.js
+
+        admin/
+            ui_admin.html
+            ui_admin.css
+            ui_admin.js
+
+        shared/
+            ui_fonts.css
+            ui_theme.css
+    modules/
+        drugs/
+            cl_drugs.lua
+            sv_drugs.lua
+            sh_drugs.lua
+
+        economy/
+            cl_economy.lua
+            sv_economy.lua
+            sh_economy.lua
+
+        world/
+            cl_world.lua
+            sv_world.lua
+            sh_world.lua
+    systems/
+        001_core/
+            cl_core.lua
+            sv_core.lua
+            sh_core.lua
+
+        002_init/
+            cl_init.lua
+            sv_init.lua
+            sh_init.lua
+
+        003_config/
+            cl_config.lua
+            sv_config.lua
+            sh_config.lua
+
+        004_utils/
+            cl_utils.lua
+            sv_utils.lua
+            sh_utils.lua
+
+        005_events/
+            cl_events.lua
+            sv_events.lua
+            sh_events.lua
+
+        006_debug/
+            cl_debug.lua
+            sv_debug.lua
+            sh_debug.lua
+
+        007_logging/
+            cl_logging.lua
+            sv_logging.lua
+            sh_logging.lua
+
+        008_permissions/
+            cl_permissions.lua
+            sv_permissions.lua
+            sh_permissions.lua
+
+        009_characters/
+            cl_characters.lua
+            sv_characters.lua
+            sh_characters.lua
+
+        010_inventory/
+            cl_inventory.lua
+            sv_inventory.lua
+            sh_inventory.lua
+
+        011_items/
+            cl_items.lua
+            sv_items.lua
+            sh_items.lua
+
+        012_crafting/
+            cl_crafting.lua
+            sv_crafting.lua
+            sh_crafting.lua
+
+        013_skills/
+            cl_skills.lua
+            sv_skills.lua
+            sh_skills.lua
+
+        014_survival/
+            cl_survival.lua
+            sv_survival.lua
+            sh_survival.lua
+
+        015_metabolism/
+            cl_metabolism.lua
+            sv_metabolism.lua
+            sh_metabolism.lua
+
+        016_injuries/
+            cl_injuries.lua
+            sv_injuries.lua
+            sh_injuries.lua
+
+        017_health/
+            cl_health.lua
+            sv_health.lua
+            sh_health.lua
+
+        018_status_effects/
+            cl_status_effects.lua
+            sv_status_effects.lua
+            sh_status_effects.lua
+
+        019_stamina/
+            cl_stamina.lua
+            sv_stamina.lua
+            sh_stamina.lua
+
+        020_hydration/
+            cl_hydration.lua
+            sv_hydration.lua
+            sh_hydration.lua
+
+        021_hunger/
+            cl_hunger.lua
+            sv_hunger.lua
+            sh_hunger.lua
+
+        022_temperature/
+            cl_temperature.lua
+            sv_temperature.lua
+            sh_temperature.lua
+
+        023_shelter/
+            cl_shelter.lua
+            sv_shelter.lua
+            sh_shelter.lua
+
+        024_weather/
+            cl_weather.lua
+            sv_weather.lua
+            sh_weather.lua
+
+        025_environment/
+            cl_environment.lua
+            sv_environment.lua
+            sh_environment.lua
+    systems/
+        026_nodes/
+            cl_nodes.lua
+            sv_nodes.lua
+            sh_nodes.lua
+
+        027_node_spawns/
+            cl_node_spawns.lua
+            sv_node_spawns.lua
+            sh_node_spawns.lua
+
+        028_resources/
+            cl_resources.lua
+            sv_resources.lua
+            sh_resources.lua
+
+        029_mining/
+            cl_mining.lua
+            sv_mining.lua
+            sh_mining.lua
+
+        030_lumber/
+            cl_lumber.lua
+            sv_lumber.lua
+            sh_lumber.lua
+
+        031_farming/
+            cl_farming.lua
+            sv_farming.lua
+            sh_farming.lua
+
+        032_fishing/
+            cl_fishing.lua
+            sv_fishing.lua
+            sh_fishing.lua
+
+        033_hunting/
+            cl_hunting.lua
+            sv_hunting.lua
+            sh_hunting.lua
+
+        034_animals/
+            cl_animals.lua
+            sv_animals.lua
+            sh_animals.lua
+
+        035_ai/
+            cl_ai.lua
+            sv_ai.lua
+            sh_ai.lua
+
+        036_pathfinding/
+            cl_pathfinding.lua
+            sv_pathfinding.lua
+            sh_pathfinding.lua
+
+        037_loot/
+            cl_loot.lua
+            sv_loot.lua
+            sh_loot.lua
+
+        038_containers/
+            cl_containers.lua
+            sv_containers.lua
+            sh_containers.lua
+
+        039_stash/
+            cl_stash.lua
+            sv_stash.lua
+            sh_stash.lua
+
+        040_storage/
+            cl_storage.lua
+            sv_storage.lua
+            sh_storage.lua
+
+        041_vehicles/
+            cl_vehicles.lua
+            sv_vehicles.lua
+            sh_vehicles.lua
+
+        042_vehicle_damage/
+            cl_vehicle_damage.lua
+            sv_vehicle_damage.lua
+            sh_vehicle_damage.lua
+
+        043_vehicle_inventory/
+            cl_vehicle_inventory.lua
+            sv_vehicle_inventory.lua
+            sh_vehicle_inventory.lua
+
+        044_vehicle_fuel/
+            cl_vehicle_fuel.lua
+            sv_vehicle_fuel.lua
+            sh_vehicle_fuel.lua
+
+        045_fuel_system/
+            cl_fuel_system.lua
+            sv_fuel_system.lua
+            sh_fuel_system.lua
+
+        046_energy/
+            cl_energy.lua
+            sv_energy.lua
+            sh_energy.lua
+
+        047_powergrid/
+            cl_powergrid.lua
+            sv_powergrid.lua
+            sh_powergrid.lua
+
+        048_generators/
+            cl_generators.lua
+            sv_generators.lua
+            sh_generators.lua
+
+        049_batteries/
+            cl_batteries.lua
+            sv_batteries.lua
+            sh_batteries.lua
+
+        050_electronics/
+            cl_electronics.lua
+            sv_electronics.lua
+            sh_electronics.lua
+
+        051_circuits/
+            cl_circuits.lua
+            sv_circuits.lua
+            sh_circuits.lua
+
+        052_sensors/
+            cl_sensors.lua
+            sv_sensors.lua
+            sh_sensors.lua
+
+        053_security/
+            cl_security.lua
+            sv_security.lua
+            sh_security.lua
+
+        054_locks/
+            cl_locks.lua
+            sv_locks.lua
+            sh_locks.lua
+
+        055_doors/
+            cl_doors.lua
+            sv_doors.lua
+            sh_doors.lua
+
+        056_building/
+            cl_building.lua
+            sv_building.lua
+            sh_building.lua
+
+        057_construction/
+            cl_construction.lua
+            sv_construction.lua
+            sh_construction.lua
+
+        058_structures/
+            cl_structures.lua
+            sv_structures.lua
+            sh_structures.lua
+
+        059_world/
+            cl_world.lua
+            sv_world.lua
+            sh_world.lua
+
+        060_map/
+            cl_map.lua
+            sv_map.lua
+            sh_map.lua
+
+        061_navigation/
+            cl_navigation.lua
+            sv_navigation.lua
+            sh_navigation.lua
+
+        062_radio/
+            cl_radio.lua
+            sv_radio.lua
+            sh_radio.lua
+
+        063_chat/
+            cl_chat.lua
+            sv_chat.lua
+            sh_chat.lua
+
+        064_ui/
+            cl_ui.lua
+            sv_ui.lua
+            sh_ui.lua
+
+        065_notifications/
+            cl_notifications.lua
+            sv_notifications.lua
+            sh_notifications.lua
+
+        066_admin/
+            cl_admin.lua
+            sv_admin.lua
+            sh_admin.lua
+
+        067_moderation/
+            cl_moderation.lua
+            sv_moderation.lua
+            sh_moderation.lua
+
+        068_logging_system/
+            cl_logging_system.lua
+            sv_logging_system.lua
+            sh_logging_system.lua
+
+        069_economy/
+            cl_economy.lua
+            sv_economy.lua
+            sh_economy.lua
+
+        070_currency/
+            cl_currency.lua
+            sv_currency.lua
+            sh_currency.lua
+
+        071_trading/
+            cl_trading.lua
+            sv_trading.lua
+            sh_trading.lua
+
+        072_shops/
+            cl_shops.lua
+            sv_shops.lua
+            sh_shops.lua
+
+        073_factions/
+            cl_factions.lua
+            sv_factions.lua
+            sh_factions.lua
+
+        074_reputation/
+            cl_reputation.lua
+            sv_reputation.lua
+            sh_reputation.lua
+
+        075_mastery/
+            cl_mastery.lua
+            sv_mastery.lua
+            sh_mastery.lua
+        076_rank_system/
+            cl_rank_system.lua
+            sv_rank_system.lua
+            sh_rank_system.lua
+
+        077_titles/
+            cl_titles.lua
+            sv_titles.lua
+            sh_titles.lua
+
+        078_achievements/
+            cl_achievements.lua
+            sv_achievements.lua
+            sh_achievements.lua
+
+        079_missions/
+            cl_missions.lua
+            sv_missions.lua
+            sh_missions.lua
+
+        080_quests/
+            cl_quests.lua
+            sv_quests.lua
+            sh_quests.lua
+
+        081_objectives/
+            cl_objectives.lua
+            sv_objectives.lua
+            sh_objectives.lua
+
+        082_dialogue/
+            cl_dialogue.lua
+            sv_dialogue.lua
+            sh_dialogue.lua
+
+        083_interactions/
+            cl_interactions.lua
+            sv_interactions.lua
+            sh_interactions.lua
+
+        084_emotes/
+            cl_emotes.lua
+            sv_emotes.lua
+            sh_emotes.lua
+
+        085_animation/
+            cl_animation.lua
+            sv_animation.lua
+            sh_animation.lua
+
+        086_sound/
+            cl_sound.lua
+            sv_sound.lua
+            sh_sound.lua
+
+        087_music/
+            cl_music.lua
+            sv_music.lua
+            sh_music.lua
+
+        088_effects/
+            cl_effects.lua
+            sv_effects.lua
+            sh_effects.lua
+
+        089_particles/
+            cl_particles.lua
+            sv_particles.lua
+            sh_particles.lua
+
+        090_weather_fx/
+            cl_weather_fx.lua
+            sv_weather_fx.lua
+            sh_weather_fx.lua
+
+        091_timecycle/
+            cl_timecycle.lua
+            sv_timecycle.lua
+            sh_timecycle.lua
+
+        092_daynight/
+            cl_daynight.lua
+            sv_daynight.lua
+            sh_daynight.lua
+
+        093_world_events/
+            cl_world_events.lua
+            sv_world_events.lua
+            sh_world_events.lua
+
+        094_disasters/
+            cl_disasters.lua
+            sv_disasters.lua
+            sh_disasters.lua
+
+        095_fires/
+            cl_fires.lua
+            sv_fires.lua
+            sh_fires.lua
+
+        096_flooding/
+            cl_flooding.lua
+            sv_flooding.lua
+            sh_flooding.lua
+
+        097_outbreaks/
+            cl_outbreaks.lua
+            sv_outbreaks.lua
+            sh_outbreaks.lua
+
+        098_contamination/
+            cl_contamination.lua
+            sv_contamination.lua
+            sh_contamination.lua
+
+        099_radiation/
+            cl_radiation.lua
+            sv_radiation.lua
+            sh_radiation.lua
+
+        100_pollution/
+            cl_pollution.lua
+            sv_pollution.lua
+            sh_pollution.lua
+
+        101_decay/
+            cl_decay.lua
+            sv_decay.lua
+            sh_decay.lua
+
+        102_loot_tables/
+            cl_loot_tables.lua
+            sv_loot_tables.lua
+            sh_loot_tables.lua
+
+        103_spawn_rules/
+            cl_spawn_rules.lua
+            sv_spawn_rules.lua
+            sh_spawn_rules.lua
+
+        104_encounters/
+            cl_encounters.lua
+            sv_encounters.lua
+            sh_encounters.lua
+
+        105_npcs/
+            cl_npcs.lua
+            sv_npcs.lua
+            sh_npcs.lua
+
+        106_npc_behaviors/
+            cl_npc_behaviors.lua
+            sv_npc_behaviors.lua
+            sh_npc_behaviors.lua
+
+        107_npc_dialogue/
+            cl_npc_dialogue.lua
+            sv_npc_dialogue.lua
+            sh_npc_dialogue.lua
+
+        108_npc_trading/
+            cl_npc_trading.lua
+            sv_npc_trading.lua
+            sh_npc_trading.lua
+
+        109_npc_jobs/
+            cl_npc_jobs.lua
+            sv_npc_jobs.lua
+            sh_npc_jobs.lua
+
+        110_jobs/
+            cl_jobs.lua
+            sv_jobs.lua
+            sh_jobs.lua
+
+        111_professions/
+            cl_professions.lua
+            sv_professions.lua
+            sh_professions.lua
+
+        112_blueprints/
+            cl_blueprints.lua
+            sv_blueprints.lua
+            sh_blueprints.lua
+
+        113_research/
+            cl_research.lua
+            sv_research.lua
+            sh_research.lua
+
+        114_science/
+            cl_science.lua
+            sv_science.lua
+            sh_science.lua
+
+        115_chemistry/
+            cl_chemistry.lua
+            sv_chemistry.lua
+            sh_chemistry.lua
+
+        116_biology/
+            cl_biology.lua
+            sv_biology.lua
+            sh_biology.lua
+
+        117_genetics/
+            cl_genetics.lua
+            sv_genetics.lua
+            sh_genetics.lua
+
+        118_mutations/
+            cl_mutations.lua
+            sv_mutations.lua
+            sh_mutations.lua
+
+        119_pathogens/
+            cl_pathogens.lua
+            sv_pathogens.lua
+            sh_pathogens.lua
+
+        120_medicine/
+            cl_medicine.lua
+            sv_medicine.lua
+            sh_medicine.lua
+
+        121_surgery/
+            cl_surgery.lua
+            sv_surgery.lua
+            sh_surgery.lua
+
+        122_implants/
+            cl_implants.lua
+            sv_implants.lua
+            sh_implants.lua
+
+        123_prosthetics/
+            cl_prosthetics.lua
+            sv_prosthetics.lua
+            sh_prosthetics.lua
+
+        124_cybernetics/
+            cl_cybernetics.lua
+            sv_cybernetics.lua
+            sh_cybernetics.lua
+
+        125_robotics/
+            cl_robotics.lua
+            sv_robotics.lua
+            sh_robotics.lua
+        126_drones/
+            cl_drones.lua
+            sv_drones.lua
+            sh_drones.lua
+
+        127_ai_units/
+            cl_ai_units.lua
+            sv_ai_units.lua
+            sh_ai_units.lua
+
+        128_hacking/
+            cl_hacking.lua
+            sv_hacking.lua
+            sh_hacking.lua
+
+        129_networks/
+            cl_networks.lua
+            sv_networks.lua
+            sh_networks.lua
+
+        130_databases/
+            cl_databases.lua
+            sv_databases.lua
+            sh_databases.lua
+
+        131_encryption/
+            cl_encryption.lua
+            sv_encryption.lua
+            sh_encryption.lua
+
+        132_decryption/
+            cl_decryption.lua
+            sv_decryption.lua
+            sh_decryption.lua
+
+        133_surveillance/
+            cl_surveillance.lua
+            sv_surveillance.lua
+            sh_surveillance.lua
+
+        134_tracking/
+            cl_tracking.lua
+            sv_tracking.lua
+            sh_tracking.lua
+
+        135_detection/
+            cl_detection.lua
+            sv_detection.lua
+            sh_detection.lua
+
+        136_camouflage/
+            cl_camouflage.lua
+            sv_camouflage.lua
+            sh_camouflage.lua
+
+        137_stealth/
+            cl_stealth.lua
+            sv_stealth.lua
+            sh_stealth.lua
+
+        138_lockpicking/
+            cl_lockpicking.lua
+            sv_lockpicking.lua
+            sh_lockpicking.lua
+
+        139_breaching/
+            cl_breaching.lua
+            sv_breaching.lua
+            sh_breaching.lua
+
+        140_explosives/
+            cl_explosives.lua
+            sv_explosives.lua
+            sh_explosives.lua
+
+        141_ballistics/
+            cl_ballistics.lua
+            sv_ballistics.lua
+            sh_ballistics.lua
+
+        142_weapons/
+            cl_weapons.lua
+            sv_weapons.lua
+            sh_weapons.lua
+
+        143_melee/
+            cl_melee.lua
+            sv_melee.lua
+            sh_melee.lua
+
+        144_ranged/
+            cl_ranged.lua
+            sv_ranged.lua
+            sh_ranged.lua
+
+        145_ammunition/
+            cl_ammunition.lua
+            sv_ammunition.lua
+            sh_ammunition.lua
+
+        146_weapon_mods/
+            cl_weapon_mods.lua
+            sv_weapon_mods.lua
+            sh_weapon_mods.lua
+
+        147_armor/
+            cl_armor.lua
+            sv_armor.lua
+            sh_armor.lua
+
+        148_clothing/
+            cl_clothing.lua
+            sv_clothing.lua
+            sh_clothing.lua
+
+        149_cosmetics/
+            cl_cosmetics.lua
+            sv_cosmetics.lua
+            sh_cosmetics.lua
+
+        150_customization/
+            cl_customization.lua
+            sv_customization.lua
+            sh_customization.lua
+
+        151_tattoos/
+            cl_tattoos.lua
+            sv_tattoos.lua
+            sh_tattoos.lua
+
+        152_bodymods/
+            cl_bodymods.lua
+            sv_bodymods.lua
+            sh_bodymods.lua
+
+        153_identity/
+            cl_identity.lua
+            sv_identity.lua
+            sh_identity.lua
+
+        154_passports/
+            cl_passports.lua
+            sv_passports.lua
+            sh_passports.lua
+
+        155_documents/
+            cl_documents.lua
+            sv_documents.lua
+            sh_documents.lua
+
+        156_photos/
+            cl_photos.lua
+            sv_photos.lua
+            sh_photos.lua
+
+        157_blueprint_library/
+            cl_blueprint_library.lua
+            sv_blueprint_library.lua
+            sh_blueprint_library.lua
+
+        158_architecture/
+            cl_architecture.lua
+            sv_architecture.lua
+            sh_architecture.lua
+
+        159_material_processing/
+            cl_material_processing.lua
+            sv_material_processing.lua
+            sh_material_processing.lua
+
+        160_refining/
+            cl_refining.lua
+            sv_refining.lua
+            sh_refining.lua
+
+        161_smelting/
+            cl_smelting.lua
+            sv_smelting.lua
+            sh_smelting.lua
+
+        162_textiles/
+            cl_textiles.lua
+            sv_textiles.lua
+            sh_textiles.lua
+
+        163_plastics/
+            cl_plastics.lua
+            sv_plastics.lua
+            sh_plastics.lua
+
+        164_composites/
+            cl_composites.lua
+            sv_composites.lua
+            sh_composites.lua
+
+        165_nanotech/
+            cl_nanotech.lua
+            sv_nanotech.lua
+            sh_nanotech.lua
+
+        166_ai_core/
+            cl_ai_core.lua
+            sv_ai_core.lua
+            sh_ai_core.lua
+
+        167_machine_learning/
+            cl_machine_learning.lua
+            sv_machine_learning.lua
+            sh_machine_learning.lua
+
+        168_simulation/
+            cl_simulation.lua
+            sv_simulation.lua
+            sh_simulation.lua
+
+        169_testing/
+            cl_testing.lua
+            sv_testing.lua
+            sh_testing.lua
+
+        170_quality_control/
+            cl_quality_control.lua
+            sv_quality_control.lua
+            sh_quality_control.lua
+
+        171_transport/
+            cl_transport.lua
+            sv_transport.lua
+            sh_transport.lua
+
+        172_shipping/
+            cl_shipping.lua
+            sv_shipping.lua
+            sh_shipping.lua
+
+        173_supply_chain/
+            cl_supply_chain.lua
+            sv_supply_chain.lua
+            sh_supply_chain.lua
+
+        174_distribution/
+            cl_distribution.lua
+            sv_distribution.lua
+            sh_distribution.lua
+
+        175_markets/
+            cl_markets.lua
+            sv_markets.lua
+            sh_markets.lua
+    systems/
+        176_auctions/
+            cl_auctions.lua
+            sv_auctions.lua
+            sh_auctions.lua
+
+        177_banking/
+            cl_banking.lua
+            sv_banking.lua
+            sh_banking.lua
+
+        178_insurance/
+            cl_insurance.lua
+            sv_insurance.lua
+            sh_insurance.lua
+
+        179_government/
+            cl_government.lua
+            sv_government.lua
+            sh_government.lua
+
+        180_law/
+            cl_law.lua
+            sv_law.lua
+            sh_law.lua
+
+        181_regulations/
+            cl_regulations.lua
+            sv_regulations.lua
+            sh_regulations.lua
+
+        182_court_system/
+            cl_court_system.lua
+            sv_court_system.lua
+            sh_court_system.lua
+
+        183_prisons/
+            cl_prisons.lua
+            sv_prisons.lua
+            sh_prisons.lua
+
+        184_security_forces/
+            cl_security_forces.lua
+            sv_security_forces.lua
+            sh_security_forces.lua
+
+        185_military/
+            cl_military.lua
+            sv_military.lua
+            sh_military.lua
+
+        186_tactics/
+            cl_tactics.lua
+            sv_tactics.lua
+            sh_tactics.lua
+
+        187_training/
+            cl_training.lua
+            sv_training.lua
+            sh_training.lua
+
+        188_simulations/
+            cl_simulations.lua
+            sv_simulations.lua
+            sh_simulations.lua
+
+        189_scenarios/
+            cl_scenarios.lua
+            sv_scenarios.lua
+            sh_scenarios.lua
+
+        190_endgame/
+            cl_endgame.lua
+            sv_endgame.lua
+            sh_endgame.lua
+
+        191_lategame_systems/
+            cl_lategame_systems.lua
+            sv_lategame_systems.lua
+            sh_lategame_systems.lua
+
+        192_world_bosses/
+            cl_world_bosses.lua
+            sv_world_bosses.lua
+            sh_world_bosses.lua
+
+        193_raids/
+            cl_raids.lua
+            sv_raids.lua
+            sh_raids.lua
+
+        194_dungeons/
+            cl_dungeons.lua
+            sv_dungeons.lua
+            sh_dungeons.lua
+
+        195_instances/
+            cl_instances.lua
+            sv_instances.lua
+            sh_instances.lua
+
+        196_matchmaking/
+            cl_matchmaking.lua
+            sv_matchmaking.lua
+            sh_matchmaking.lua
+
+        197_leaderboards/
+            cl_leaderboards.lua
+            sv_leaderboards.lua
+            sh_leaderboards.lua
+
+        198_statistics/
+            cl_statistics.lua
+            sv_statistics.lua
+            sh_statistics.lua
+
+        199_telemetry/
+            cl_telemetry.lua
+            sv_telemetry.lua
+            sh_telemetry.lua
+
+        200_analytics/
+            cl_analytics.lua
+            sv_analytics.lua
+            sh_analytics.lua
+
+    </pre>
+</div>
+
+<!-- Copilot Widget -->
+<div id="copilot-container"></div>
+<script src="assets/script.js"></script>
+
+</body>
+</html>
