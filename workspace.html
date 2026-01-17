@@ -5,6 +5,34 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workspace – WTZ Copilot</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>WTZ Copilot Workspace</h2>
+
+    <div class="top-bar">
+        <label>Import Project (ZIP):</label>
+        <input type="file" id="project-upload" accept=".zip">
+
+        <label>Select Project:</label>
+        <select id="project-select">
+            <option value="">No project loaded</option>
+        </select>
+    </div>
+</div>
+
+<div class="editor">
+    <h3 id="editor-title">No file selected</h3>
+    <textarea id="editor-area"></textarea>
+    <button id="save-file">Save</button>
+    <button id="download-project">Download Project</button>
+</div>
 
 <div class="container">
     <h2>wtz / Wtz3.0</h2>
@@ -1131,8 +1159,48 @@ wtz3.0/
 
     
 <!-- Copilot Widget -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workspace – WTZ Copilot</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>WTZ Copilot Workspace</h2>
+
+    <div class="top-bar">
+        <label>Import Project (ZIP):</label>
+        <input type="file" id="project-upload" accept=".zip">
+
+        <label>Select Project:</label>
+        <select id="project-select">
+            <option value="">No project loaded</option>
+        </select>
+    </div>
+</div>
+
+<div class="file-manager">
+    <h3>Files</h3>
+    <ul id="file-list"></ul>
+</div>
+
+<div class="editor">
+    <h3 id="editor-title">No file selected</h3>
+    <textarea id="editor-area"></textarea>
+    <button id="save-file">Save</button>
+    <button id="download-project">Download Project</button>
+</div>
+
 <div id="copilot-container"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="assets/script.js"></script>
+
+</body>
+</html>
+
 
 </body>
 </html>
