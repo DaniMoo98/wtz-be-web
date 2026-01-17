@@ -22,6 +22,26 @@ const templates = {
 };
 
 // ----------------------
+// AI REQUEST HANDLER (Render backend)
+// ----------------------
+
+async function askCopilot(prompt) {
+    const payload = {
+        prompt: prompt,
+        projectName: currentProject,
+        files: projectFiles
+    };
+
+    const response = await fetch("https://wtz-be-web.onrender.com/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    });
+
+    return await response.json();
+}
+
+// ----------------------
 // PROJECT STORAGE
 // ----------------------
 
@@ -176,7 +196,7 @@ document.getElementById("download-project").onclick = async () => {
 };
 
 // ----------------------
-// COPILOT WIDGET
+// COPILOT WIDGET + AI INTEGRATION
 // ----------------------
 
 function initCopilotWidget() {
@@ -193,7 +213,7 @@ function initCopilotWidget() {
     const input = document.getElementById("copilot-input");
     const messages = document.getElementById("copilot-messages");
 
-    input.addEventListener("keypress", function (e) {
+    input.addEventListener("keypress", async function (e) {
         if (e.key === "Enter") {
             const msg = input.value;
             if (!msg) return;
@@ -204,11 +224,40 @@ function initCopilotWidget() {
 
             input.value = "";
 
-            setTimeout(() => {
+            try {
+                const result = await askCopilot(msg);
+
+                if (result.messages && Array.isArray(result.messages)) {
+                    result.messages.forEach(text => {
+                        const botMsg = document.createElement("div");
+                        botMsg.textContent = "Copilot: " + text;
+                        messages.appendChild(botMsg);
+                    });
+                }
+
+                if (result.updates) {
+                    Object.keys(result.updates).forEach(path => {
+                        projectFiles[path] = result.updates[path];
+                    });
+                }
+
+                if (result.newFiles) {
+                    Object.keys(result.newFiles).forEach(path => {
+                        projectFiles[path] = result.newFiles[path];
+                    });
+                }
+
+                loadFileList();
+
+                const openFileName = document.getElementById("editor-title").textContent;
+                if (projectFiles[openFileName]) {
+                    document.getElementById("editor-area").value = projectFiles[openFileName];
+                }
+            } catch (err) {
                 const botMsg = document.createElement("div");
-                botMsg.textContent = "Copilot: (AI response will go here)";
+                botMsg.textContent = "Copilot: Backend error.";
                 messages.appendChild(botMsg);
-            }, 500);
+            }
         }
     });
 }
